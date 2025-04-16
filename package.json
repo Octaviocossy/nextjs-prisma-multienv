@@ -8,9 +8,11 @@
     "start": "next start",
     "lint": "next lint",
     "migrate": "prisma migrate dev --name",
-    "migrate:qa": "env-cmd -f .env.qa prisma migrate deploy",
-    "migrate:prod": "env-cmd -f .env.prod prisma migrate deploy",
+    "migrate:qa": "dotenv -e .env.qa -- prisma migrate deploy",
+    "migrate:prod": "dotenv -e .env.prod -- prisma migrate deploy",
     "studio": "prisma studio",
+    "studio:qa": "dotenv -e .env.qa -- prisma studio",
+    "studio:prod": "dotenv -e .env.prod -- prisma studio",
     "generate": "prisma generate",
     "docker:up": "docker compose up -d",
     "docker:down": "docker compose down"
@@ -20,8 +22,7 @@
     "next": "15.3.0",
     "prisma": "^6.6.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "env-cmd": "^10.1.0"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
@@ -32,6 +33,7 @@
     "@types/react-dom": "^19",
     "@typescript-eslint/eslint-plugin": "^8.30.1",
     "@vercel/style-guide": "^6.0.0",
+    "dotenv-cli": "^8.0.0",
     "eslint": "^9.24.0",
     "eslint-config-next": "15.3.0",
     "eslint-config-prettier": "^10.1.2",
